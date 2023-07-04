@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block contents %}
+<h2>Remove Employee</h2>
+<form class="input_form" method="POST" autocomplete="off" type="submit" action="{% url 'remove_emp' %}">
+    {% csrf_token %}
+    <div class="flex">
+        <label for="">Employee ID</label>
+        <input name="emp_id" type="text">
+    </div>
+    <div class="flex">
+        <label for="">Name</label>
+        <input name="name" type="text">
+    </div>
+    <input class="submit" type="submit" value="Search">
+</form>
+{% if employees %}
+<form method="POST" type="submit" action="{% url 'delete_emp' %}">
+    {% csrf_token %}
+    <div class="flex">
+        <h3>Select Employee to be removed</h3>
+        <button class="delete" type="submit"><i class="fa-solid fa-trash"></i>   Delete</button>
+    </div>
+    <table>
+        <tr class="theading">
+            <th><input type="checkbox" name="all" class="selectall" /></th>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Position</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            <td><input type="checkbox" name="{{employee.emp_id}}" class="select" /></td>
+            <td>{{employee.emp_id}}</td>
+            <td class="name"><a href="/remove_emp/{{employee.emp_id}}">{{employee.name}}</a></td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.dept}}</td>
+            <td>{{employee.position}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+{% else %}
+<h2>No employees found</h2>
+{% endif %}
+{% endblock contents %}

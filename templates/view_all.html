@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block contents %}
+<div class="flex">
+    <h2>Employees List: {{employees|length}}</h2>
+    <a class="add" href="{% url 'add_emp' %}"><i class="fa-solid fa-plus"></i>  Add New</a>
+</div>
+<table>
+    <tr class="theading">
+        <th>#</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Position</th>
+        <th>Salary</th>
+    </tr>
+    {% for employee in employees %}
+    <tr>
+        <td>{{employee.emp_id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.dob}}</td>
+        <td>{{employee.gender}}</td>
+        <td>{{employee.ph_no}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.dept}}</td>
+        <td>{{employee.position}}</td>
+        <td>{{employee.salary}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block contents %}
+<h2>Update Employee</h2>
+<form class="input_form" method="POST" autocomplete="off" type="submit" action="{% url 'update_emp' %}">
+    {% csrf_token %}
+    <div class="flex">
+        <label for="">Employee ID</label>
+        <input name="emp_id" type="text">
+    </div>
+    <div class="flex">
+        <label for="">Name</label>
+        <input name="name" type="text">
+    </div>
+    <input class="submit" type="submit" value="Search">
+</form>
+{% if employees %}
+<h3>Select Employee to be updated</h3>
+<table>
+    <tr class="theading">
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Position</th>
+    </tr>
+    {% for employee in employees %}
+    <tr>
+        <td>{{employee.emp_id}}</td>
+        <td class="name"><a href="/update_emp/{{employee.emp_id}}">{{employee.name}}</a></td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.dept}}</td>
+        <td>{{employee.position}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>No employees found</h2>
+{% endif %}
+{% endblock contents %}

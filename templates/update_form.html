@@ -1,0 +1,86 @@
+{% extends 'index.html' %}
+{% block contents %}
+<h2>Update Employee</h2>
+<form class="input_form" method="POST" autocomplete="off" type="submit" action="{% url 'add_emp' %}">
+    {% csrf_token %}
+    <div class="flex">
+        <label for="">Employee ID</label>
+        <input value="{{employee.emp_id}}" name="emp_id" autofocus="on" type="text" required>
+    </div>
+    <div class="flex">
+        <label for="">Name</label>
+        <input value="{{employee.name}}" name="name" type="text" required>
+    </div>
+    <div class="flex">
+        <label for="">Date of Birth</label>
+        <input value="{{employee.dob|date:'Y-m-d'}}" name="dob" type="date" required>
+    </div>
+    <div class="flex">
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender">
+            {% if employee.gender_id == 1 %}
+            <option value="1" selected>Male</option>
+            {% else %}
+            <option value="1">Male</option>
+            {% endif %}
+            {% if employee.gender_id == 2 %}
+            <option value="2" selected>Female</option>
+            {% else %}
+            <option value="2">Female</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="flex">
+        <label for="">Phone no.</label>
+        <input value="{{employee.ph_no}}" name="ph_no" type="text" required>
+    </div>
+    <div class="flex">
+        <label for="">Email</label>
+        <input value="{{employee.email}}" name="email" type="email" required>
+    </div>
+    <div class="flex">
+        <label for="dept">Department</label>
+        <select name="dept" id="dept">
+            {% if employee.dept_id == 1 %}
+            <option value="1" selected>Human Resources</option>
+            {% else %}
+            <option value="1">Human Resources</option>
+            {% endif %}
+            {% if employee.dept_id == 2 %}
+            <option value="2" selected>Accounts</option>
+            {% else %}
+            <option value="2">Accounts</option>
+            {% endif %}
+            {% if employee.dept_id == 3 %}
+            <option value="3" selected>Marketing</option>
+            {% else %}
+            <option value="3">Marketing</option>
+            {% endif %}
+            {% if employee.dept_id == 4 %}
+            <option value="4" selected>Information Technology</option>
+            {% else %}
+            <option value="4">Information Technology</option>
+            {% endif %}
+            {% if employee.dept_id == 5 %}
+            <option value="5" selected>Sales</option>
+            {% else %}
+            <option value="5">Sales</option>
+            {% endif %}
+            {% if employee.dept_id == 6 %}
+            <option value="6" selected>Operation</option>
+            {% else %}
+            <option value="6">Operation</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="flex">
+        <label for="">Position</label>
+        <input value="{{employee.position}}" name="position" type="text" required>
+    </div>
+    <div class="flex">
+        <label for="">Salary</label>
+        <input value="{{employee.salary}}" name="salary" type="text" required>
+    </div>
+    <input class="submit" type="submit" value="Submit">
+</form>
+{% endblock contents %}

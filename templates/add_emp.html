@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% block contents %}
+<h2>Add Employee</h2>
+<form class="input_form" method="POST" autocomplete="off" type="submit" action="{% url 'add_emp' %}">
+    {% csrf_token %}
+    <div class="flex">
+        <label for="">Employee ID</label>
+        <input name="emp_id" autofocus="on" type="text" required>
+    </div>
+    <div class="flex">
+        <label for="">Name</label>
+        <input name="name" type="text" required>
+    </div>
+    <div class="flex">
+        <label for="">Date of Birth</label>
+        <input name="dob" type="date" required>
+    </div>
+    <div class="flex">
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender">
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
+    </div>
+    <div class="flex">
+        <label for="">Phone no.</label>
+        <input name="ph_no" type="text" required>
+    </div>
+    <div class="flex">
+        <label for="">Email</label>
+        <input name="email" type="email" required>
+    </div>
+    <div class="flex">
+        <label for="dept">Department</label>
+        <select name="dept" id="dept">
+            <option value="1">Human Resources</option>
+            <option value="2">Accounts</option>
+            <option value="3">Marketing</option>
+            <option value="4">Information Technology</option>
+            <option value="5">Sales</option>
+            <option value="6">Operation</option>
+        </select>
+    </div>
+    <div class="flex">
+        <label for="">Position</label>
+        <input name="position" type="text" required>
+    </div>
+    <div class="flex">
+        <label for="">Salary</label>
+        <input name="salary" type="text" required>
+    </div>
+    <input class="submit" type="submit" value="Submit">
+</form>
+{% endblock contents %}
