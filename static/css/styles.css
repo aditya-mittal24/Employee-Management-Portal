@@ -96,7 +96,7 @@ span {
 .sidebar {
     background-color: #1B202C;
     height: 100%;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 16%;
@@ -106,7 +106,7 @@ span {
 
 .main {
     margin: 100px 3% 0 18%;
-    overflow: scroll;
+    overflow: visible;
 }
 
 form.input_form {
