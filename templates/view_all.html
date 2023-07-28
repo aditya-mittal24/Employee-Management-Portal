@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 {% block contents %}
 <div class="flex">
-    <h2>Employees List: {{employees|length}}</h2>
+    <h2>Employees List: {{ employees|length }}</h2>
     <a class="add" href="{% url 'add_emp' %}"><i class="fa-solid fa-plus"></i>  Add New</a>
 </div>
 <table>
