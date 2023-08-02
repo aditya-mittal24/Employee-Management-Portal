@@ -85,12 +85,11 @@ WSGI_APPLICATION = 'emp_management.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'URL': 'postgresql://postgres:j21TPJaznCbGQ2VWfPvM@containers-us-west-35.railway.app:6457/railway',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'j21TPJaznCbGQ2VWfPvM',
-        'HOST': 'containers-us-west-35.railway.app',
-        'PORT': '6457'
+        'PASSWORD': 'JAmgDsIimAr6MVWKVWFn',
+        'HOST': 'containers-us-west-93.railway.app',
+        'PORT': '6553'
     }
 }
 
@@ -131,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
